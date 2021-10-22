@@ -1,0 +1,44 @@
+<script src="/scripts/create_issue.js"></script>
+<div id="hidable-form" class="form-container">
+  <h3>Add a new Issue</h3>
+  <form action="/issues/create-issue/<%=project.id %>" method="POST">
+    <!-- issue name, description and auther -->
+    <div>
+      <label for="issueName" class="form-label">Issue</label>
+      <input type="text" name="issueName" id="issueName" required />
+    </div>
+    <div>
+      <label for="issueDescription" class="form-label">Description</label>
+      <textarea
+        type="text"
+        name="issueDescription"
+        id="issueDescription"
+      ></textarea>
+    </div>
+    <div>
+      <label for="issueAuthor">Author</label>
+      <input type="text" name="issueAuthor" id="issueAuthor" required />
+    </div>
+    <!-- selecting lable from provided and creting in not present. -->
+    <div id="selected-labels"></div>
+    <!-- hidden input to store the value -->
+    <input type="hidden" name="label_list" id="label-list" />
+
+    <div class="lable-input-container">
+      <input
+        name="label"
+        id="label"
+        list="label-options"
+        placeholder="Type to search..."
+        autocomplete="off"
+        multiple
+      />
+      <button id="label-submit">Add Label</button>
+      <datalist id="label-options">
+        <% if(project.label){ %> <% for (label of project.label) { %>
+        <option value="<%=label%>"><% } %> <% } %></option>
+      </datalist>
+    </div>
+    <button type="submit" id="submit-issue-btn">Submit Issue</button>
+  </form>
+</div>

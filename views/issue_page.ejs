@@ -1,0 +1,86 @@
+<script src="/scripts/issue_page.js"></script>
+<link rel="stylesheet" href="/styles/list.css" />
+<main id="issue-main-page">
+  <div id="issue-header" class="place-apart">
+    <h2><%= project.projectName%></h2>
+    <div class="status place-center red">
+      <div><%=issues.length %></div>
+      <span>Issues</span>
+    </div>
+  </div>
+  <div class="filter-container">
+    <!-- Search -->
+    <form action="" id="search-form" name="searchForm">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search Title or Description"
+        required
+        autocomplete="off"
+      />
+      <button id="search-btn">Search</button>
+    </form>
+    <div class="label-filer-container">
+      <div class="accordion-contianer">
+        <!-- accordion for label-->
+        <details>
+          <summary>Labels</summary>
+          <!-- checkbox list  -->
+          <div id="label-list-accordion">
+            <% for(item of uniqueLabels) {%>
+            <div class="form-check">
+              <input type="checkbox" value="<%=item%>" id="label-<%=item%>" />
+              <label class="form-check-label" for="label-<%=item%>">
+                <%=item%>
+              </label>
+            </div>
+            <% }%>
+          </div>
+        </details>
+        <!-- accordion for authors-->
+        <details>
+          <summary>Author</summary>
+          <!-- checkbox list  -->
+          <div id="author-list-accordion">
+            <% for(item of uniqueAuthors) {%>
+            <div class="form-check">
+              <input type="checkbox" value="<%=item%>" id="label-<%=item%>" />
+              <label class="form-check-label" for="label-<%=item%>">
+                <%=item%>
+              </label>
+            </div>
+            <% }%>
+          </div>
+        </details>
+      </div>
+      <!-- filter btn -->
+      <button id="filter-btn">filter</button>
+    </div>
+  </div>
+  <!-- list of issues in the project -->
+  <h3 class="text-center mb-4">All ISSUES</h3>
+  <div id="issue-list" class="list">
+    <% for( item of issues) { %>
+    <div class="issue-card">
+      <div class="project-header place-apart">
+        <h4><%= item.issueName %></h4>
+        <div class="auther-container">
+          <small>Author</small>
+          <h4><%= item.issueAuthor %></h4>
+        </div>
+      </div>
+      <details class="issue-description">
+        <summary>Description</summary>
+        <div class="accordion-body"><%= item.issueDescription%></div>
+      </details>
+      <div class="issue-labels">
+        <div class="label-tag">Tags :</div>
+        <% for(entry of item.label) { %>
+        <div class="label-tag"><%= entry %></div>
+        <%}%>
+      </div>
+    </div>
+    <%}%>
+  </div>
+</main>
+<%-include('./_issue_form')%>

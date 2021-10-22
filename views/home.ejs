@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/styles/list.css" />
+<main>
+  <div class="place-apart">
+    <h2>Projects</h2>
+    <div class="status-container">
+      <div class="status place-center green">
+        <div><%=projects.length%></div>
+        <span>Projects</span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <!-- project lists -->
+  <div id="project-list" class="list">
+    <% for(project of projects ) { %>
+    <a class="project-card" href="<%=project.projectLink%>">
+      <div class="project-header place-apart">
+        <h3><%= project.projectName %></h3>
+        <div class="auther-container">
+          <small>Author</small>
+          <h4><%= project.projectAuthor %></h4>
+        </div>
+      </div>
+      <h3>Description</h3>
+      <p><%= project.projectDescription %></p>
+      <div class="place-apart">
+        <span></span>
+        <% if(project.issues.length ===0){%>
+        <div class="green">Issues : <%=project.issues.length%></div>
+        <%}else{%>
+        <div class="red">Issues : <%=project.issues.length%></div>
+        <%}%>
+      </div>
+    </a>
+    <% } %>
+  </div>
+</main>
+<!-- this form will be shown when button will be clicked -->
+<%-include('./_project_form')%>

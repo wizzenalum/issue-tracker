@@ -1,0 +1,159 @@
+html {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.795);
+  text-shadow: 0 0 2px 2px rgba(6, 18, 121, 0.507);
+}
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html p {
+  margin: 0px;
+  padding: 5px 10px;
+  color: rgba(0, 0, 0, 0.795);
+}
+html small {
+  margin: 0px;
+  padding: 0px;
+}
+html a {
+  text-decoration: none;
+  color: #23f090;
+  user-select: none;
+  line-height: 1.5em;
+}
+html body {
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  margin-bottom: 100px;
+  overflow-x: hidden;
+}
+html *,
+html *::before,
+html *::after {
+  box-sizing: inherit;
+}
+html .green {
+  color: lime;
+}
+html .red {
+  color: red;
+}
+html .yellow {
+  color: #fffb00;
+}
+html .btn,
+html button {
+  user-select: none;
+  color: #370a38;
+  padding: 3px 10px;
+  font-size: 1em;
+  width: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+html .btn:hover,
+html button:hover {
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+html .btn:active,
+html button:active {
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3) inset;
+}
+html main {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 95%;
+  gap: 2vw;
+  margin: 5vh auto;
+}
+html .place-center {
+  display: grid;
+  place-items: center center;
+}
+html .place-apart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+html .head1 {
+  margin: 20px;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+html h2 {
+  margin: 10px;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+body > header {
+  height: 100px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: plum;
+}
+body > header img {
+  width: 100px;
+  aspect-ratio: 1;
+}
+
+.status-container {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
+}
+.status-container h2 {
+  font-size: 2em;
+}
+
+#issue-header {
+  width: 80%;
+  margin: auto;
+}
+
+.filter-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+  gap: 5%;
+}
+.filter-container > * {
+  width: 100%;
+  display: grid;
+}
+.filter-container .accordion-contianer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 5%;
+}
+.filter-container button {
+  justify-self: center;
+  align-self: auto;
+}
+.filter-container details {
+  margin: 30px 0;
+}
+.filter-container details summary {
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0, 68, 255, 0.685);
+  width: auto;
+  user-select: none;
+}
+.filter-container details summary:hover {
+  box-shadow: 0 0 4px rgba(255, 238, 0, 0.884);
+}
+.filter-container details summary:active {
+  box-shadow: 0 0 4px rgba(0, 68, 255, 0.685);
+}
+.filter-container details > div {
+  position: relative;
+  left: 5%;
+}
